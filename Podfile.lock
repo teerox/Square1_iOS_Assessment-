@@ -1,0 +1,30 @@
+PODS:
+  - Alamofire (5.6.1)
+  - Mocker (2.5.5)
+  - Realm (10.28.2):
+    - Realm/Headers (= 10.28.2)
+  - Realm/Headers (10.28.2)
+  - RealmSwift (10.28.2):
+    - Realm (= 10.28.2)
+
+DEPENDENCIES:
+  - Alamofire
+  - Mocker (~> 2.5.4)
+  - RealmSwift (~> 10)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Mocker
+    - Realm
+    - RealmSwift
+
+SPEC CHECKSUMS:
+  Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
+  Mocker: 8c731a8104962f246cadf2b02556218e9edc1390
+  Realm: e617c54ad0f566b3d0f6a2abae7010de05f252ac
+  RealmSwift: 8a516a8759d80d52ebcec1ff1076f5f5159f98b2
+
+PODFILE CHECKSUM: f5f34a4429a8ddd064beb5f7f3f1b64dd5383aa1
+
+COCOAPODS: 1.11.3
