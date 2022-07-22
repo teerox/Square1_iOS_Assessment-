@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - Welcome
+// MARK: - ResponseModel
 struct ResponseModel: Codable {
     let data: AllItems?
     let time: Double?
@@ -66,4 +66,17 @@ struct Pagination: Codable {
         case perPage = "per_page"
         case total
     }
+}
+
+struct MapData {
+    var longitude: Double?
+    var latitude: Double?
+    var name: String?
+    var country: String?
+}
+
+struct AllMapData {
+    var longitude: [Double]
+    var latitude: [Double]
+    var name: [String]
 }

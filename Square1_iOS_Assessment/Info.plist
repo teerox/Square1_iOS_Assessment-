@@ -20,19 +20,21 @@
 				</dict>
 			</array>
 		</dict>
-        <key>NSAppTransportSecurity</key>
+	</dict>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSExceptionDomains</key>
         <dict>
-            <key>NSExceptionDomains</key>
+            <key>connect-demo.mobile1.io</key>
             <dict>
-                <key>connect-demo.mobile1.io</key>
-                <dict>
-                    <key>NSExceptionAllowsInsecureHTTPLoads</key>
-                    <true/>
-                    <key>NSIncludesSubdomains</key>
-                    <true/>
-                </dict>
+                <key>NSExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+                <key>NSIncludesSubdomains</key>
+                <true/>
             </dict>
         </dict>
-	</dict>
+    </dict>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Allow application to use your location</string>
 </dict>
 </plist>

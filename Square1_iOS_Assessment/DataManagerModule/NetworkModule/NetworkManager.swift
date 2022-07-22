@@ -51,7 +51,7 @@ class NetworkManager: ServiceProtocol {
                     parameters: [String : Any]?,
                     encoding: ParameterEncoding) -> AnyPublisher<DataResponse<T, NetworkError>, Never> where T : Decodable, T : Encodable {
         
-        let request = AF.request(baseUrl + url, method: method, parameters: parameters, encoding: encoding)
+        let request = AF.request(baseUrl + url)
         
         #if DEBUG
             request.response{ response in
@@ -70,7 +70,7 @@ class NetworkManager: ServiceProtocol {
                     return NetworkError(initialError: error, backendError: backendError)
                 }
             }
-            .receive(on: DispatchQueue.main)
+            .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
     }
 }
