@@ -30,13 +30,13 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qAf-vs-Z3a">
                                 <rect key="frame" x="0.0" y="85" width="414" height="811"/>
                                 <connections>
-                                    <segue destination="KGi-Dk-hL0" kind="embed" id="IkG-3H-Bqk"/>
+                                    <segue destination="KGi-Dk-hL0" kind="embed" identifier="map" id="IkG-3H-Bqk"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p2a-zZ-7ue">
                                 <rect key="frame" x="0.0" y="85" width="414" height="811"/>
                                 <connections>
-                                    <segue destination="rsy-P1-9it" kind="embed" id="7Di-3i-qWq"/>
+                                    <segue destination="rsy-P1-9it" kind="embed" identifier="list" id="7Di-3i-qWq"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -78,6 +78,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="811"/>
                             </mapView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="HU3-9Q-ib3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="UrA-r0-KkR" secondAttribute="bottom" id="2Gz-Ia-5s5"/>
@@ -107,6 +108,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="2UN-f9-sWG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="QUd-dT-DLs" firstAttribute="leading" secondItem="f13-6N-dLY" secondAttribute="leading" id="G5Q-Ev-PUf"/>

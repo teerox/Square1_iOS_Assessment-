@@ -7,7 +7,6 @@
 
 import Foundation
 import Combine
-import Alamofire
 import RealmSwift
 
 class Repository {
@@ -18,7 +17,7 @@ class Repository {
     private var errorMessages: String = ""
     private var token: NotificationToken?
     
-    let items = PassthroughSubject<[Item], NetworkError>()
+    let items = PassthroughSubject<[Item], Error>()
     let itemsFromDb = CurrentValueSubject<[TableViewValue], Never>([])
     
     /// Initialze Network Manager and cache manager here
@@ -34,58 +33,60 @@ class Repository {
     }
     
     func fetchAllCitiesIncludingCountry(page: Int) {
-        let result: AnyPublisher<DataResponse<ResponseModel,
-                                              NetworkError>, Never> = networkManger
-            .request(url: "/city",
-                     method: .get,
-                     parameters: ["page" : page, "include": "country"],
-                     encoding: URLEncoding.queryString)
+        let result: AnyPublisher<ResponseModel, Error> = networkManger
+            .makeReques(url: "/city",
+                        method: .get,
+                        parameters: ["page" : page, "include": "country"])
+        result
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    self.fetchDataFromDB()
+                case .failure(let error):
+                    self.fetchDataFromDB()
+                    self.logError(with: error)
+                }
+            } receiveValue: { result in
+                self.cacheManager.writeToRealm(data: result.data)
+            }.store(in: &cancellableSet)
+    }
+    
+    func queryByCityName(with cityName: String, page: Int) {
+        
+        let result: AnyPublisher<ResponseModel, Error> = networkManger
+            .makeReques(url: "/city",
+                        method: .get,
+                        parameters: ["filter[0][name][contains]": cityName,
+                                     "page" : page,"include": "country"])
         
         result
-            .sink { result in
-            if result.error != nil {
-                self.logError(with: result.error!)
-                self.errorMessages = result
-                    .error!.backendError == nil ? "Check Internet connection" : result
-                    .error!.backendError!.message ?? "Error"
-            } else {
-                self.cacheManager.writeToRealm(data: result.value?.data)
-            }
-        }.store(in: &cancellableSet)
-    }
- 
-    func queryByCityName(with cityName: String, page: Int) {
-        let result: AnyPublisher<DataResponse<ResponseModel,
-                                              NetworkError>, Never> = networkManger
-            .request(url: "/city",
-                     method: .get,
-                     parameters: ["filter[0][name][contains]": cityName,"page" : page,"include": "country"],
-                     encoding: URLEncoding.queryString)
-        result
             .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
-            .sink { result in
-            if result.error != nil {
-                self.items.send(completion: .failure(result.error!))
-            } else {
-                self.items.send(result.value?.data?.items ?? [])
-            }
-        }
-            .store(in: &cancellableSet)
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    print("finished")
+                case .failure(let error):
+                    self.logError(with: error)
+                }
+            } receiveValue: { result in
+                self.items.send(result.data?.items ?? [])
+            }.store(in: &cancellableSet)
     }
     
     func fetchDataFromDB() {
-       let result = cacheManager.fetchFromRealm()
-        
-        token = result.observe({ [weak self] changes in
-            self?.itemsFromDb.value = result
-                .map(TableViewValue.init)
-                .sorted(by: { $0.id ?? 0 > $1.id ?? 0 })
-        })
+        var resultArray = [TableViewValue]()
+        let result = cacheManager.fetchFromRealm()
+        if !result.isEmpty {
+            
+            resultArray.removeAll()
+            for value in result {
+                resultArray.append(TableViewValue(value: value))
+            }
+        }
+        itemsFromDb.send(resultArray.sorted(by: { $0.id ?? 0 < $1.id ?? 0 }))
     }
-    
-    private func logError( with error: NetworkError ) {
-        error.backendError == nil ?
-        print(error.initialError.localizedDescription) :
-        print(error.backendError!.message ?? "Error")
+
+    private func logError( with error: Error) {
+        print("Error fetching Data")
     }
 }

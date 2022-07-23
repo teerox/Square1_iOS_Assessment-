@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		06F3B8F66A238D97DDF1E7F8 /* Pods_Square1_iOS_Assessment_Square1_iOS_AssessmentUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044FD9CF6A7656816AF6A65D /* Pods_Square1_iOS_Assessment_Square1_iOS_AssessmentUITests.framework */; };
-		A3000B3A092A39B245D6EDE8 /* Pods_Square1_iOS_AssessmentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F2F26BABA9811B9E69F5DA6 /* Pods_Square1_iOS_AssessmentTests.framework */; };
 		B2218FB8DCC7625698664A2F /* Pods_Square1_iOS_Assessment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD9A881FD08DA2B880947FF9 /* Pods_Square1_iOS_Assessment.framework */; };
+		C5E343214BB0CFB87E8AA303 /* Pods_Square1_iOS_Assessment_Square1_iOS_AssessmentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A8F9655252F8C4364D771AF /* Pods_Square1_iOS_Assessment_Square1_iOS_AssessmentTests.framework */; };
 		C70BBEC32888CE960094D402 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70BBEC22888CE960094D402 /* AppDelegate.swift */; };
 		C70BBEC52888CE960094D402 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70BBEC42888CE960094D402 /* SceneDelegate.swift */; };
 		C70BBEC72888CE960094D402 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70BBEC62888CE960094D402 /* HomeViewController.swift */; };
@@ -21,8 +21,6 @@
 		C70BBEE62888CE990094D402 /* Square1_iOS_AssessmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70BBEE52888CE990094D402 /* Square1_iOS_AssessmentUITestsLaunchTests.swift */; };
 		C70BBEF52889490E0094D402 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70BBEF42889490E0094D402 /* NetworkManager.swift */; };
 		C74EF76C28895C5D0066A58E /* ApiResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EF76B28895C5D0066A58E /* ApiResponseModel.swift */; };
-		C74EF76E288964040066A58E /* EndPointTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EF76D288964040066A58E /* EndPointTest.swift */; };
-		C74EF770288964810066A58E /* MockedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EF76F288964810066A58E /* MockedData.swift */; };
 		C74EF77528897D770066A58E /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EF77428897D770066A58E /* Repository.swift */; };
 		C74EF77928897E170066A58E /* LocalDataCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EF77828897E170066A58E /* LocalDataCacheManager.swift */; };
 		C74EF77B2889933E0066A58E /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EF77A2889933E0066A58E /* RealmModel.swift */; };
@@ -34,6 +32,8 @@
 		C74EF78B288AA4D50066A58E /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EF789288AA4D50066A58E /* TableViewCell.swift */; };
 		C74EF78C288AA4D50066A58E /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C74EF78A288AA4D50066A58E /* TableViewCell.xib */; };
 		C74EF78E288AA56E0066A58E /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EF78D288AA56E0066A58E /* Utils.swift */; };
+		C74EF793288AE69D0066A58E /* ViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EF792288AE69D0066A58E /* ViewModelTest.swift */; };
+		C74EF795288B54110066A58E /* ItemDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EF794288B54110066A58E /* ItemDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +57,8 @@
 		044FD9CF6A7656816AF6A65D /* Pods_Square1_iOS_Assessment_Square1_iOS_AssessmentUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Square1_iOS_Assessment_Square1_iOS_AssessmentUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		08F9DDC4A55FA6BDFF118A99 /* Pods-Square1_iOS_Assessment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Square1_iOS_Assessment.release.xcconfig"; path = "Target Support Files/Pods-Square1_iOS_Assessment/Pods-Square1_iOS_Assessment.release.xcconfig"; sourceTree = "<group>"; };
 		272EA7D5E81C6E3143367368 /* Pods-Square1_iOS_AssessmentTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Square1_iOS_AssessmentTests.debug.xcconfig"; path = "Target Support Files/Pods-Square1_iOS_AssessmentTests/Pods-Square1_iOS_AssessmentTests.debug.xcconfig"; sourceTree = "<group>"; };
-		2F2F26BABA9811B9E69F5DA6 /* Pods_Square1_iOS_AssessmentTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Square1_iOS_AssessmentTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EE3B3CE48E81B98E5173F6B /* Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentTests.release.xcconfig"; path = "Target Support Files/Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentTests/Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentTests.release.xcconfig"; sourceTree = "<group>"; };
+		4A8F9655252F8C4364D771AF /* Pods_Square1_iOS_Assessment_Square1_iOS_AssessmentTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Square1_iOS_Assessment_Square1_iOS_AssessmentTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F40B7C7131BA6F0E491F5F5 /* Pods-Square1_iOS_AssessmentTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Square1_iOS_AssessmentTests.release.xcconfig"; path = "Target Support Files/Pods-Square1_iOS_AssessmentTests/Pods-Square1_iOS_AssessmentTests.release.xcconfig"; sourceTree = "<group>"; };
 		8FA45864F50C08A52738B8D2 /* Pods-Square1_iOS_Assessment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Square1_iOS_Assessment.debug.xcconfig"; path = "Target Support Files/Pods-Square1_iOS_Assessment/Pods-Square1_iOS_Assessment.debug.xcconfig"; sourceTree = "<group>"; };
 		AD9A881FD08DA2B880947FF9 /* Pods_Square1_iOS_Assessment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Square1_iOS_Assessment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,8 +77,6 @@
 		C70BBEE52888CE990094D402 /* Square1_iOS_AssessmentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Square1_iOS_AssessmentUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C70BBEF42889490E0094D402 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C74EF76B28895C5D0066A58E /* ApiResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponseModel.swift; sourceTree = "<group>"; };
-		C74EF76D288964040066A58E /* EndPointTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointTest.swift; sourceTree = "<group>"; };
-		C74EF76F288964810066A58E /* MockedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedData.swift; sourceTree = "<group>"; };
 		C74EF77428897D770066A58E /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		C74EF77828897E170066A58E /* LocalDataCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataCacheManager.swift; sourceTree = "<group>"; };
 		C74EF77A2889933E0066A58E /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
@@ -89,8 +88,11 @@
 		C74EF789288AA4D50066A58E /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		C74EF78A288AA4D50066A58E /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		C74EF78D288AA56E0066A58E /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		C74EF792288AE69D0066A58E /* ViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTest.swift; sourceTree = "<group>"; };
+		C74EF794288B54110066A58E /* ItemDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDataSource.swift; sourceTree = "<group>"; };
 		D165335FFC4C18E3BF52B1C7 /* Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentUITests.debug.xcconfig"; path = "Target Support Files/Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentUITests/Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D30C2B8A875AB780F417C695 /* Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentUITests.release.xcconfig"; path = "Target Support Files/Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentUITests/Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentUITests.release.xcconfig"; sourceTree = "<group>"; };
+		EE8FC70D497EA757BAA0F5F0 /* Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentTests.debug.xcconfig"; path = "Target Support Files/Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentTests/Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3000B3A092A39B245D6EDE8 /* Pods_Square1_iOS_AssessmentTests.framework in Frameworks */,
+				C5E343214BB0CFB87E8AA303 /* Pods_Square1_iOS_Assessment_Square1_iOS_AssessmentTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +132,8 @@
 				D30C2B8A875AB780F417C695 /* Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentUITests.release.xcconfig */,
 				272EA7D5E81C6E3143367368 /* Pods-Square1_iOS_AssessmentTests.debug.xcconfig */,
 				7F40B7C7131BA6F0E491F5F5 /* Pods-Square1_iOS_AssessmentTests.release.xcconfig */,
+				EE8FC70D497EA757BAA0F5F0 /* Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentTests.debug.xcconfig */,
+				3EE3B3CE48E81B98E5173F6B /* Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -139,7 +143,7 @@
 			children = (
 				AD9A881FD08DA2B880947FF9 /* Pods_Square1_iOS_Assessment.framework */,
 				044FD9CF6A7656816AF6A65D /* Pods_Square1_iOS_Assessment_Square1_iOS_AssessmentUITests.framework */,
-				2F2F26BABA9811B9E69F5DA6 /* Pods_Square1_iOS_AssessmentTests.framework */,
+				4A8F9655252F8C4364D771AF /* Pods_Square1_iOS_Assessment_Square1_iOS_AssessmentTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -169,9 +173,9 @@
 		C70BBEC12888CE960094D402 /* Square1_iOS_Assessment */ = {
 			isa = PBXGroup;
 			children = (
+				C74EF77728897D9F0066A58E /* DataManagerModule */,
 				C74EF783288A93A00066A58E /* Utils */,
 				C74EF77C2889C48B0066A58E /* Repository */,
-				C74EF77728897D9F0066A58E /* DataManagerModule */,
 				C74EF77128897D0E0066A58E /* Views */,
 				C70BBEF3288942E20094D402 /* Model */,
 				C70BBEC42888CE960094D402 /* SceneDelegate.swift */,
@@ -187,9 +191,8 @@
 		C70BBED82888CE990094D402 /* Square1_iOS_AssessmentTests */ = {
 			isa = PBXGroup;
 			children = (
+				C74EF791288AE1A20066A58E /* ViewModelTest */,
 				C70BBED92888CE990094D402 /* Square1_iOS_AssessmentTests.swift */,
-				C74EF76D288964040066A58E /* EndPointTest.swift */,
-				C74EF76F288964810066A58E /* MockedData.swift */,
 			);
 			path = Square1_iOS_AssessmentTests;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 			children = (
 				C74EF76B28895C5D0066A58E /* ApiResponseModel.swift */,
 				C74EF77A2889933E0066A58E /* RealmModel.swift */,
+				C74EF794288B54110066A58E /* ItemDataSource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -223,11 +227,10 @@
 		C74EF77128897D0E0066A58E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C74EF78F288AE1770066A58E /* HomeView */,
 				C74EF788288AA4AD0066A58E /* Cell */,
 				C74EF77328897D320066A58E /* MapView */,
 				C74EF77228897D260066A58E /* ListView */,
-				C70BBEC62888CE960094D402 /* HomeViewController.swift */,
-				C74EF77D2889C49F0066A58E /* ViewModel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -290,6 +293,23 @@
 				C74EF78A288AA4D50066A58E /* TableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		C74EF78F288AE1770066A58E /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				C70BBEC62888CE960094D402 /* HomeViewController.swift */,
+				C74EF77D2889C49F0066A58E /* ViewModel.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		C74EF791288AE1A20066A58E /* ViewModelTest */ = {
+			isa = PBXGroup;
+			children = (
+				C74EF792288AE69D0066A58E /* ViewModelTest.swift */,
+			);
+			path = ViewModelTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -441,7 +461,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Square1_iOS_AssessmentTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -476,15 +496,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Square1_iOS_AssessmentTests/Pods-Square1_iOS_AssessmentTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentTests/Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Square1_iOS_AssessmentTests/Pods-Square1_iOS_AssessmentTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentTests/Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Square1_iOS_AssessmentTests/Pods-Square1_iOS_AssessmentTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentTests/Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		80F03EB4BF99B1CA918D2FA1 /* [CP] Embed Pods Frameworks */ = {
@@ -559,6 +579,7 @@
 				C74EF78B288AA4D50066A58E /* TableViewCell.swift in Sources */,
 				C74EF77528897D770066A58E /* Repository.swift in Sources */,
 				C70BBEC32888CE960094D402 /* AppDelegate.swift in Sources */,
+				C74EF795288B54110066A58E /* ItemDataSource.swift in Sources */,
 				C74EF77B2889933E0066A58E /* RealmModel.swift in Sources */,
 				C74EF787288A96130066A58E /* Extensions.swift in Sources */,
 				C74EF76C28895C5D0066A58E /* ApiResponseModel.swift in Sources */,
@@ -572,9 +593,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C74EF76E288964040066A58E /* EndPointTest.swift in Sources */,
 				C70BBEDA2888CE990094D402 /* Square1_iOS_AssessmentTests.swift in Sources */,
-				C74EF770288964810066A58E /* MockedData.swift in Sources */,
+				C74EF793288AE69D0066A58E /* ViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -798,7 +818,7 @@
 		};
 		C70BBEED2888CE990094D402 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 272EA7D5E81C6E3143367368 /* Pods-Square1_iOS_AssessmentTests.debug.xcconfig */;
+			baseConfigurationReference = EE8FC70D497EA757BAA0F5F0 /* Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -819,7 +839,7 @@
 		};
 		C70BBEEE2888CE990094D402 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7F40B7C7131BA6F0E491F5F5 /* Pods-Square1_iOS_AssessmentTests.release.xcconfig */;
+			baseConfigurationReference = 3EE3B3CE48E81B98E5173F6B /* Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

@@ -10,23 +10,18 @@ import RealmSwift
 
 // MARK: - CityAndCountry
 class CityAndCountry: Object {
-    @Persisted var id: Int?
+    @Persisted(primaryKey: true) var id = 0
     @Persisted var name: String?
     @Persisted var localName: String?
     @Persisted var lat: Double?
     @Persisted var lng: Double?
     @Persisted var countryID: Int?
-    @Persisted var country: CountryValue?
+    @Persisted var countryName: String?
+    @Persisted var countryCode: String?
+    @Persisted var continentID: Int?
     @Persisted var currentPage: Int?
     @Persisted var lastPage: Int?
-}
-
-// MARK: - CountryValue
-class CountryValue: Object {
-    @Persisted var id: Int?
-    @Persisted var name: String?
-    @Persisted var code: String?
-    @Persisted var continentID: Int?
+    @Persisted var total: Int?
 }
 
 struct TableViewValue {
@@ -36,9 +31,12 @@ struct TableViewValue {
     var lat: Double?
     var lng: Double?
     var countryID: Int?
-    var country: String?
+    var countryName: String?
+    var countryCode: String?
+    var continentID: Int?
     var currentPage: Int?
     var lastPage: Int?
+    var total: Int?
     
     init(value: CityAndCountry) {
         self.id = value.id
@@ -47,8 +45,11 @@ struct TableViewValue {
         self.lat = value.lat
         self.lng = value.lng
         self.countryID = value.countryID
-        self.country = value.country?.name
+        self.countryName = value.countryName
+        self.countryCode = value.countryCode
+        self.continentID = value.continentID
         self.currentPage = value.currentPage
         self.lastPage = value.lastPage
+        self.total = value.total
     }
 }

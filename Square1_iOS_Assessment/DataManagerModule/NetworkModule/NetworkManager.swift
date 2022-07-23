@@ -6,17 +6,19 @@
 //
 
 import Foundation
-import Alamofire
 import Combine
 
 
 struct NetworkError: Error {
-  let initialError: AFError
-  let backendError: BackendError?
+    let backendError: BackendError?
 }
 
 struct BackendError: Codable, Error {
     let message: String?
+}
+
+enum CustomHTTPMethod: String {
+    case get = "GET"
 }
 
 protocol ServiceProtocol {
@@ -25,17 +27,14 @@ protocol ServiceProtocol {
     ///   - url: url for request
     ///   - method: methods for POST, GET, PUT and DELETE
     ///   - parameters: request body as dictionary
-    ///   - isJSONRequest: if set to true 'encoding: ParameterEncoding! = JSONEncoding.default
-    ///                    or false ' encoding: ParameterEncoding = URLEncoding.default
     /// - Returns: returns AnyPublisher with the data response
-    func request<T: Codable>(url :String,
-                             method: HTTPMethod,
-                             parameters: [String:Any]?,
-                             encoding: ParameterEncoding) -> AnyPublisher<DataResponse<T, NetworkError>, Never>
+    func makeReques<T: Codable>(url :String,
+                                method: CustomHTTPMethod,
+                                parameters: [String:Any]? ) -> AnyPublisher<T, Error>
 }
 
 class NetworkManager: ServiceProtocol {
-
+    
     // Create a shared Instance
     static let _shared = NetworkManager()
     
@@ -46,31 +45,44 @@ class NetworkManager: ServiceProtocol {
     
     private let baseUrl = "http://connect-demo.mobile1.io/square1/connect/v1"
     
-    func request<T>(url: String,
-                    method: HTTPMethod,
-                    parameters: [String : Any]?,
-                    encoding: ParameterEncoding) -> AnyPublisher<DataResponse<T, NetworkError>, Never> where T : Decodable, T : Encodable {
+    func makeReques<T>(url: String,
+                       method: CustomHTTPMethod,
+                       parameters: [String : Any]?) -> AnyPublisher<T, Error> where T : Decodable, T : Encodable {
+
+        guard var urlComponents = URLComponents(string: baseUrl + url) else {
+            fatalError("invalid url")
+        }
         
-        let request = AF.request(baseUrl + url)
+        urlComponents.queryItems = []
         
-        #if DEBUG
-            request.response{ response in
-                print(response.debugDescription,"")
+        /// check if params is sent
+        /// Param is the request object for get calls
+        if let parameters = parameters {
+            for (key, value) in parameters {
+                urlComponents.queryItems?.append(URLQueryItem(name: key, value: "\(value)"))
             }
+        }
+        
+        /// print the request url
+        #if DEBUG
+        print( urlComponents.url as Any)
         #endif
         
-        return request
-            .validate()
-            .publishDecodable(type: T.self)
-            .map { response in
-                response.mapError { error in
-                    let backendError = response.data.flatMap {
-                        try? JSONDecoder().decode(BackendError.self, from: $0)
-                    }
-                    return NetworkError(initialError: error, backendError: backendError)
-                }
-            }
-            .receive(on: RunLoop.main)
+        /// Create a request
+        var request = URLRequest(url:  urlComponents.url!,
+                                 cachePolicy: .useProtocolCachePolicy,
+                                 timeoutInterval:  10 )
+        request.httpMethod = method.rawValue
+        
+        /// Create a session
+        return URLSession
+            .shared
+            .dataTaskPublisher(for: request)
+            //.print()
+            .map{ $0.data }
+            .decode(type: T.self, decoder: JSONDecoder())
+            .map { $0 }
+            .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
 }

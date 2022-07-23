@@ -10,7 +10,7 @@ import MapKit
 import Combine
 
 class MapViewController: UIViewController {
-
+    
     @IBOutlet weak var mapView: MKMapView!
     
     private var cancellableSet: Set<AnyCancellable> = []
@@ -18,19 +18,23 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        viewModel = ViewModel()
+        setUpData()
     }
     
     func setUpData() {
-        viewModel = ViewModel()
-        viewModel?.fetchFromDB()
+       
+        viewModel?.getLngAndLat()
         arrangeDataForLatAndLong()
     }
-
+    
     func arrangeDataForLatAndLong() {
-        setAnotation(latitudes: viewModel?.mapDatas().latitude ?? [],
-                     longitudes: viewModel?.mapDatas().longitude ?? [],
-                     names: viewModel?.mapDatas().name ?? [])
+        viewModel?.allMapData
+            .sink(receiveValue: { value in
+                self.setAnotation(latitudes: value.latitude ,
+                                  longitudes: value.longitude ,
+                                  names: value.name)
+            }).store(in: &cancellableSet)
     }
     
     func setAnotation(latitudes: [Double], longitudes: [Double], names: [String]) {

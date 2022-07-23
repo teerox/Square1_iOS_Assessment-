@@ -13,6 +13,7 @@ class ListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.register(TableViewCell.self)
+            tableView.rowHeight = 50
         }
     }
     
@@ -25,13 +26,12 @@ class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = ViewModel()
+        setUpData()
     }
     
     
     func setUpData() {
-        viewModel?.fetchDataFromApi(page: page)
         viewModel?.fetchFromDB()
-        viewModel?.updateItem()
         viewModel?.itemsFromDb
             .sink(receiveValue: { result in
                 self.didFetchData(data: result)
@@ -39,9 +39,9 @@ class ListViewController: UIViewController {
             .store(in: &cancellableSet)
     }
     
-    private func handleTableViewDataSource(model: [TableViewValue]) -> GenericTableViewDataSourceDelegate<TableViewValue, TableViewCell> {
+    private func handleTableViewDataSource(model: ItemDataSource) -> GenericTableViewDataSourceDelegate<TableViewValue, TableViewCell> {
         return GenericTableViewDataSourceDelegate<TableViewValue, TableViewCell>(
-            models: model) { (result, cell) in
+            models: model.sections, items: model.items) { (result, cell) in
                 cell.attachView(value: result)
             }
     }
@@ -52,10 +52,13 @@ class ListViewController: UIViewController {
     }
     
     private func didFetchData(data: [TableViewValue]) {
-        dataSource = handleTableViewDataSource(model: data)
+        let values: ItemDataSource = .init(data: data)
+        dataSource = handleTableViewDataSource(model: values)
         dataSource?.didSelectItemAt = handleDidSelect(data: data)
         handleTableView()
         tableView.reloadData()
+        self.totalPage = data.first?.total ?? 1
+        self.page = data.last?.currentPage ?? 1
         loadMore()
     }
     
@@ -78,7 +81,7 @@ class ListViewController: UIViewController {
                 self.page += 1
                 if self.page <= self.totalPage {
                     // make Request update Table
-                    self.setUpData()
+                    self.viewModel?.fetchDataFromApi(page: self.page)
                 }
             }
         }

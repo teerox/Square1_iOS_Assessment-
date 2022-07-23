@@ -1,4 +1,3 @@
-# Uncomment the next line to define a global platform for your project
 platform :ios, '13.0'
 
 target 'Square1_iOS_Assessment' do
@@ -7,11 +6,9 @@ target 'Square1_iOS_Assessment' do
 
   # Pods for Square1_iOS_Assessment
 pod 'RealmSwift', '~>10'
-pod 'Alamofire'
 
   target 'Square1_iOS_AssessmentTests' do
-    inherit! :search_paths
-    pod 'Mocker', '~> 2.5.4'
+    # Pods for testing
   end
 
   target 'Square1_iOS_AssessmentUITests' do

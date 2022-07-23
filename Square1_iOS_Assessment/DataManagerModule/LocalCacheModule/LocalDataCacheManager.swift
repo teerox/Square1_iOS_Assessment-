@@ -11,6 +11,7 @@ import RealmSwift
 protocol CacheProtocol {
     func writeToRealm(data: AllItems?)
     func fetchFromRealm() -> Results<CityAndCountry>
+    func deleteData()
 }
 
 class LocalDataCacheManager: CacheProtocol {
@@ -23,7 +24,9 @@ class LocalDataCacheManager: CacheProtocol {
         return _shared
     }
     
-    let realm = try! Realm()
+    lazy var realm:Realm = {
+        return try! Realm()
+    }()
     
     func writeToRealm(data: AllItems?) {
         do {
@@ -60,14 +63,19 @@ class LocalDataCacheManager: CacheProtocol {
             value.lat = items.lat
             value.lng = items.lng
             value.countryID = items.countryID
-            value.country?.id = items.country?.id
-            value.country?.name = items.country?.name
-            value.country?.code = items.country?.code
-            value.country?.continentID = items.country?.continentID
+            value.countryName = items.country?.name
+            value.countryCode = items.country?.code
+            value.continentID = items.country?.continentID
             value.currentPage = data?.pagination?.currentPage
             value.lastPage = data?.pagination?.lastPage
-            
+            value.total = data?.pagination?.total
             realm.add(value, update: .all)
+        }
+    }
+    
+    func deleteData() {
+        try! realm.write {
+            realm.deleteAll()
         }
     }
 }

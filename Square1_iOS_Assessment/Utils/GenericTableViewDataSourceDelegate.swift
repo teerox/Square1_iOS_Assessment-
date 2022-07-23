@@ -13,7 +13,7 @@ public final class GenericTableViewDataSourceDelegate<Model, Cell: UITableViewCe
     
     // MARK: Public
     
-    public typealias CellConfigurator = ((Model, Cell) -> Void)
+    public typealias CellConfigurator = ((Model?, Cell) -> Void)
     public typealias DidSelectItem = ((Int) -> Void)
     public typealias DidSwipeItem = ((IndexPath, Cell?) -> UISwipeActionsConfiguration?)
     public typealias LoadMore = ((Bool) -> Void)
@@ -23,27 +23,38 @@ public final class GenericTableViewDataSourceDelegate<Model, Cell: UITableViewCe
     public var itemDisplayLimit: Int?
     
     // MARK: Internal
-    
-    var models: [Model]
+    var models: [String: [Model]] = [:]
+    var items: [String] = []
     
     // MARK: Private
-    
     private let cellConfigurator: CellConfigurator
     
     // MARK: Initialiser
-    
-    public init(models: [Model], cellConfigurator: @escaping CellConfigurator) {
+    public init(models: [String: [Model]], items: [String], cellConfigurator: @escaping CellConfigurator) {
         self.models = models
+        self.items = items
         self.cellConfigurator = cellConfigurator
     }
     
+    public func numberOfSections(in tableView: UITableView) -> Int {
+        models.count
+    }
+    
+    public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return  items[section].uppercased()
+    }
+    
+    public func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let headerView = view as! UITableViewHeaderFooterView
+        headerView.textLabel?.font = .boldSystemFont(ofSize: 14)
+    }
+    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemDisplayLimit ?? models.count
+        return itemDisplayLimit ?? models[items[section]]?.count ?? 0
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let model = models[indexPath.row]
+        let model = models[items[indexPath.section]]?[indexPath.row]
         let cell = tableView.dequeue(Cell.self, for: indexPath)
         
         cellConfigurator(model, cell)
@@ -57,7 +68,7 @@ public final class GenericTableViewDataSourceDelegate<Model, Cell: UITableViewCe
     }
     
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == models.count - 5 {
+        if indexPath.section == models.count - 1 {
             loadMore?(true)
         }else {
             loadMore?(false)

@@ -80,3 +80,4 @@ struct AllMapData {
     var latitude: [Double]
     var name: [String]
 }
+
