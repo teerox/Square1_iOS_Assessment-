@@ -5,7 +5,7 @@ target 'Square1_iOS_Assessment' do
   use_frameworks!
 
   # Pods for Square1_iOS_Assessment
-pod 'RealmSwift', '~>10'
+pod 'RealmSwift'
 
   target 'Square1_iOS_AssessmentTests' do
     # Pods for testing

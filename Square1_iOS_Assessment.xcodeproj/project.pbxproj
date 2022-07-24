@@ -28,12 +28,13 @@
 		C74EF780288A06E80066A58E /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EF77F288A06E80066A58E /* ListViewController.swift */; };
 		C74EF782288A07000066A58E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EF781288A07000066A58E /* MapViewController.swift */; };
 		C74EF785288A93BE0066A58E /* GenericTableViewDataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EF784288A93BE0066A58E /* GenericTableViewDataSourceDelegate.swift */; };
-		C74EF787288A96130066A58E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EF786288A96130066A58E /* Extensions.swift */; };
+		C74EF787288A96130066A58E /* UIViewController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EF786288A96130066A58E /* UIViewController + Extensions.swift */; };
 		C74EF78B288AA4D50066A58E /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EF789288AA4D50066A58E /* TableViewCell.swift */; };
 		C74EF78C288AA4D50066A58E /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C74EF78A288AA4D50066A58E /* TableViewCell.xib */; };
-		C74EF78E288AA56E0066A58E /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EF78D288AA56E0066A58E /* Utils.swift */; };
 		C74EF793288AE69D0066A58E /* ViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EF792288AE69D0066A58E /* ViewModelTest.swift */; };
 		C74EF795288B54110066A58E /* ItemDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74EF794288B54110066A58E /* ItemDataSource.swift */; };
+		C76A63C0288BA7AB0043E315 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76A63BF288BA7AB0043E315 /* SearchViewController.swift */; };
+		C76A63C3288CCCB60043E315 /* UITableView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76A63C2288CCCB60043E315 /* UITableView + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,12 +85,13 @@
 		C74EF77F288A06E80066A58E /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		C74EF781288A07000066A58E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		C74EF784288A93BE0066A58E /* GenericTableViewDataSourceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTableViewDataSourceDelegate.swift; sourceTree = "<group>"; };
-		C74EF786288A96130066A58E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		C74EF786288A96130066A58E /* UIViewController + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extensions.swift"; sourceTree = "<group>"; };
 		C74EF789288AA4D50066A58E /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		C74EF78A288AA4D50066A58E /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
-		C74EF78D288AA56E0066A58E /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		C74EF792288AE69D0066A58E /* ViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTest.swift; sourceTree = "<group>"; };
 		C74EF794288B54110066A58E /* ItemDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDataSource.swift; sourceTree = "<group>"; };
+		C76A63BF288BA7AB0043E315 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		C76A63C2288CCCB60043E315 /* UITableView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView + Extension.swift"; sourceTree = "<group>"; };
 		D165335FFC4C18E3BF52B1C7 /* Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentUITests.debug.xcconfig"; path = "Target Support Files/Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentUITests/Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D30C2B8A875AB780F417C695 /* Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentUITests.release.xcconfig"; path = "Target Support Files/Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentUITests/Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EE8FC70D497EA757BAA0F5F0 /* Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentTests.debug.xcconfig"; path = "Target Support Files/Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentTests/Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -227,10 +229,12 @@
 		C74EF77128897D0E0066A58E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C76A63BE288BA7890043E315 /* SearchView */,
 				C74EF78F288AE1770066A58E /* HomeView */,
 				C74EF788288AA4AD0066A58E /* Cell */,
 				C74EF77328897D320066A58E /* MapView */,
 				C74EF77228897D260066A58E /* ListView */,
+				C74EF77D2889C49F0066A58E /* ViewModel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -279,9 +283,8 @@
 		C74EF783288A93A00066A58E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C76A63C1288CCC960043E315 /* Extensions */,
 				C74EF784288A93BE0066A58E /* GenericTableViewDataSourceDelegate.swift */,
-				C74EF786288A96130066A58E /* Extensions.swift */,
-				C74EF78D288AA56E0066A58E /* Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -299,7 +302,6 @@
 			isa = PBXGroup;
 			children = (
 				C70BBEC62888CE960094D402 /* HomeViewController.swift */,
-				C74EF77D2889C49F0066A58E /* ViewModel.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -310,6 +312,23 @@
 				C74EF792288AE69D0066A58E /* ViewModelTest.swift */,
 			);
 			path = ViewModelTest;
+			sourceTree = "<group>";
+		};
+		C76A63BE288BA7890043E315 /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				C76A63BF288BA7AB0043E315 /* SearchViewController.swift */,
+			);
+			path = SearchView;
+			sourceTree = "<group>";
+		};
+		C76A63C1288CCC960043E315 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C74EF786288A96130066A58E /* UIViewController + Extensions.swift */,
+				C76A63C2288CCCB60043E315 /* UITableView + Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -571,17 +590,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				C74EF782288A07000066A58E /* MapViewController.swift in Sources */,
+				C76A63C3288CCCB60043E315 /* UITableView + Extension.swift in Sources */,
 				C74EF785288A93BE0066A58E /* GenericTableViewDataSourceDelegate.swift in Sources */,
 				C74EF77928897E170066A58E /* LocalDataCacheManager.swift in Sources */,
+				C76A63C0288BA7AB0043E315 /* SearchViewController.swift in Sources */,
 				C70BBEF52889490E0094D402 /* NetworkManager.swift in Sources */,
 				C70BBEC72888CE960094D402 /* HomeViewController.swift in Sources */,
-				C74EF78E288AA56E0066A58E /* Utils.swift in Sources */,
 				C74EF78B288AA4D50066A58E /* TableViewCell.swift in Sources */,
 				C74EF77528897D770066A58E /* Repository.swift in Sources */,
 				C70BBEC32888CE960094D402 /* AppDelegate.swift in Sources */,
 				C74EF795288B54110066A58E /* ItemDataSource.swift in Sources */,
 				C74EF77B2889933E0066A58E /* RealmModel.swift in Sources */,
-				C74EF787288A96130066A58E /* Extensions.swift in Sources */,
+				C74EF787288A96130066A58E /* UIViewController + Extensions.swift in Sources */,
 				C74EF76C28895C5D0066A58E /* ApiResponseModel.swift in Sources */,
 				C70BBEC52888CE960094D402 /* SceneDelegate.swift in Sources */,
 				C74EF780288A06E80066A58E /* ListViewController.swift in Sources */,

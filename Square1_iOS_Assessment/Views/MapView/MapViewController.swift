@@ -23,7 +23,6 @@ class MapViewController: UIViewController {
     }
     
     func setUpData() {
-       
         viewModel?.getLngAndLat()
         arrangeDataForLatAndLong()
     }

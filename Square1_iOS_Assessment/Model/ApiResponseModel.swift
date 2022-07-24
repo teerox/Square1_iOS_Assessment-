@@ -20,7 +20,7 @@ struct AllItems: Codable {
 }
 
 // MARK: - Item
-struct Item: Codable {
+struct Item: Codable, Equatable {
     let id: Int
     let name, localName: String?
     let lat, lng: Double?
@@ -28,6 +28,7 @@ struct Item: Codable {
     let updatedAt: String?
     let countryID: Int?
     let country: Country?
+    var pagination: Pagination?
 
     enum CodingKeys: String, CodingKey {
         case id, name
@@ -37,6 +38,10 @@ struct Item: Codable {
         case updatedAt = "updated_at"
         case countryID = "country_id"
         case country
+    }
+    
+    static func == (lhs: Item, rhs: Item) -> Bool {
+        return lhs.id == rhs.id
     }
 }
 
@@ -68,6 +73,7 @@ struct Pagination: Codable {
     }
 }
 
+// MARK: - MapData
 struct MapData {
     var longitude: Double?
     var latitude: Double?
@@ -75,6 +81,7 @@ struct MapData {
     var country: String?
 }
 
+// MARK: - AllMapData
 struct AllMapData {
     var longitude: [Double]
     var latitude: [Double]

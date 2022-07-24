@@ -17,22 +17,33 @@
                 <rect key="frame" x="0.0" y="0.0" width="368" height="87"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8hf-Rj-Xqf">
-                        <rect key="frame" x="10" y="33.5" width="348" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="RJ0-v3-Ddh">
+                        <rect key="frame" x="5" y="23.5" width="46" height="40"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8hf-Rj-Xqf">
+                                <rect key="frame" x="0.0" y="0.0" width="46" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMb-wm-Qud">
+                                <rect key="frame" x="0.0" y="23" width="35.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="8hf-Rj-Xqf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="2Qv-fg-95Y"/>
-                    <constraint firstAttribute="trailing" secondItem="8hf-Rj-Xqf" secondAttribute="trailing" constant="10" id="GNv-qt-eqy"/>
-                    <constraint firstItem="8hf-Rj-Xqf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="fdz-iB-pOq"/>
+                    <constraint firstItem="RJ0-v3-Ddh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="PwW-Zz-2lz"/>
+                    <constraint firstItem="RJ0-v3-Ddh" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="a3H-u3-DkK"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="cityName" destination="8hf-Rj-Xqf" id="Ctt-sT-pjf"/>
+                <outlet property="countryCode" destination="fMb-wm-Qud" id="A4T-dg-DEB"/>
             </connections>
             <point key="canvasLocation" x="169.56521739130437" y="134.26339285714286"/>
         </tableViewCell>

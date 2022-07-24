@@ -13,11 +13,10 @@ class ViewModel {
     private let repository = Repository()
     private var cancellableSet: Set<AnyCancellable> = []
     private var errorMessages: String = ""
-    
-    let items = CurrentValueSubject<[Item], Never>([])
+    private var itemSetUPPaginationArray: [Item] = []
+    let items = PassthroughSubject<AllItems?, Error>()
     let itemsFromDb = CurrentValueSubject<[TableViewValue], Never>([])
     let allMapData = PassthroughSubject<AllMapData, Never>()
-    
     var mapItems: [MapData] = []
     var page: Int = 1
     
@@ -49,16 +48,12 @@ class ViewModel {
     
     /// Get result from query for view
     private func getQuryResult() {
-        repository.items.sink { completion in
-            switch completion {
-            case .finished:
-                print("Received finished")
-            case .failure(let error):
-                self.logError(with: error)
-            }
-        } receiveValue: { result in
-            self.items.send(result)
-        }.store(in: &cancellableSet)
+        repository.items
+            .sink { completion in
+                self.items.send(completion: completion)
+            } receiveValue: { result in
+                self.items.send(result)
+            }.store(in: &cancellableSet)
     }
     
     /// method to get latitude, longitude, city name and country from db
@@ -78,9 +73,24 @@ class ViewModel {
         }.store(in: &cancellableSet)
     }
     
-    /// Custom Logger
-    /// - Parameter error: error from api request
-    private func logError( with error: Error) {
-        print("Error fetching Data")
+     func removeDublicate(itemArray: [Item]) -> [Item] {
+        var uniquieArray: [Item] = []
+           for item in itemArray {
+               if !uniquieArray.contains(item) {
+                   uniquieArray.append(item)
+               }
+           }
+           return uniquieArray
+    }
+    
+    func setUpItemArrayWithPagination(data: AllItems) -> [Item] {
+        
+        itemSetUPPaginationArray.removeAll()
+        self.itemSetUPPaginationArray.append(contentsOf: data.items)
+        
+        for (index,_) in itemSetUPPaginationArray.enumerated() {
+            itemSetUPPaginationArray[index].pagination = data.pagination
+        }
+        return itemSetUPPaginationArray
     }
 }

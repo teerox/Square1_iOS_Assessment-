@@ -40,7 +40,7 @@ class ViewModelTest: XCTestCase {
         viewModel.queryByCityName(with: "ka", page: 1)
         viewModel.items
             .sink(receiveValue: { result in
-                XCTAssertTrue(!result.isEmpty)
+                XCTAssertTrue(!result.items.isEmpty)
                 requestExpectation.fulfill()
             })
             .store(in: &cancellables)

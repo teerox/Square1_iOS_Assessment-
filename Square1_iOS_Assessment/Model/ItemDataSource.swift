@@ -8,28 +8,40 @@
 import Foundation
 
 class ItemDataSource: NSObject {
-    var sections: [String: [TableViewValue]] = [:]
-    var sections2: [String: [TableViewValue]] = [:]
     
-    var items: [String] {
+    var sections: [Int: [TableViewValue]] = [:]
+    var searchSection: [Int: [Item]] = [:]
+    
+    var items: [Int] {
         return sections.keys.sorted()
     }
     
-    var indexes: [String] {
-        return items
-            .map { String($0.first!) }
-            .reduce(into: Set<String>(), { $0.insert($1) })
-            .sorted()
+    var searchItems: [Int] {
+        return searchSection.keys.sorted()
     }
-
-    init(data: [TableViewValue]) {
-        for result in data {
-            let items = result.countryName
-            if var stores = sections[items ?? ""] {
-                stores.append(result)
-                sections[items ?? ""] = stores
-            } else {
-                sections[items ?? ""] = [result]
+    
+    init<T>(data: T) {
+        if let listData = data as? [TableViewValue] {
+            for result in listData {
+                let items = result.currentPage
+                if var stores = sections[items ?? 1] {
+                    stores.append(result)
+                    sections[items ?? 1] = stores
+                } else {
+                    sections[items ?? 1] = [result]
+                }
+            }
+        } else {
+            if let searchData = data as? [Item] {
+                for result in searchData {
+                    let items = result.pagination?.currentPage
+                    if var stores = searchSection[items ?? 1] {
+                        stores.append(result)
+                        searchSection[items ?? 1] = stores
+                    } else {
+                        searchSection[items ?? 1] = [result]
+                    }
+                }
             }
         }
     }

@@ -17,7 +17,7 @@ class Repository {
     private var errorMessages: String = ""
     private var token: NotificationToken?
     
-    let items = PassthroughSubject<[Item], Error>()
+    let items = PassthroughSubject<AllItems?, Error>()
     let itemsFromDb = CurrentValueSubject<[TableViewValue], Never>([])
     
     /// Initialze Network Manager and cache manager here
@@ -60,16 +60,10 @@ class Repository {
                                      "page" : page,"include": "country"])
         
         result
-            .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
             .sink { completion in
-                switch completion {
-                case .finished:
-                    print("finished")
-                case .failure(let error):
-                    self.logError(with: error)
-                }
+                self.items.send(completion: completion)
             } receiveValue: { result in
-                self.items.send(result.data?.items ?? [])
+                self.items.send(result.data)
             }.store(in: &cancellableSet)
     }
     

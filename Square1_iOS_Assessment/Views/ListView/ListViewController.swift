@@ -19,7 +19,7 @@ class ListViewController: UIViewController {
     
     private var dataSource: GenericTableViewDataSourceDelegate<TableViewValue, TableViewCell>?
     private var page: Int = 1
-    private var totalPage: Int = 1
+    private var lastPage: Int = 1
     private var viewModel: ViewModel?
     private var cancellableSet: Set<AnyCancellable> = []
     
@@ -28,7 +28,6 @@ class ListViewController: UIViewController {
         viewModel = ViewModel()
         setUpData()
     }
-    
     
     func setUpData() {
         viewModel?.fetchFromDB()
@@ -41,7 +40,7 @@ class ListViewController: UIViewController {
     
     private func handleTableViewDataSource(model: ItemDataSource) -> GenericTableViewDataSourceDelegate<TableViewValue, TableViewCell> {
         return GenericTableViewDataSourceDelegate<TableViewValue, TableViewCell>(
-            models: model.sections, items: model.items) { (result, cell) in
+            models: model.sections, items: model.items, showHeaderView: true) { (result, cell) in
                 cell.attachView(value: result)
             }
     }
@@ -54,23 +53,11 @@ class ListViewController: UIViewController {
     private func didFetchData(data: [TableViewValue]) {
         let values: ItemDataSource = .init(data: data)
         dataSource = handleTableViewDataSource(model: values)
-        dataSource?.didSelectItemAt = handleDidSelect(data: data)
         handleTableView()
         tableView.reloadData()
-        self.totalPage = data.first?.total ?? 1
+        self.lastPage = data.first?.lastPage ?? 1
         self.page = data.last?.currentPage ?? 1
         loadMore()
-    }
-    
-    private func didSelectTransaction(row: Int) {
-        /// handle did select row
-    }
-    
-    private func handleDidSelect(data: [TableViewValue]) -> ((Int) -> Void) {
-        return { [weak self] row in
-            guard let self = self else { return }
-            self.didSelectTransaction(row: row)
-        }
     }
     
     private func loadMore() {
@@ -79,7 +66,7 @@ class ListViewController: UIViewController {
             guard let self = self else { return }
             if value {
                 self.page += 1
-                if self.page <= self.totalPage {
+                if self.page <= self.lastPage {
                     // make Request update Table
                     self.viewModel?.fetchDataFromApi(page: self.page)
                 }

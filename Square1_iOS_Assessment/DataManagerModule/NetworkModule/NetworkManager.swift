@@ -8,15 +8,6 @@
 import Foundation
 import Combine
 
-
-struct NetworkError: Error {
-    let backendError: BackendError?
-}
-
-struct BackendError: Codable, Error {
-    let message: String?
-}
-
 enum CustomHTTPMethod: String {
     case get = "GET"
 }
@@ -62,11 +53,6 @@ class NetworkManager: ServiceProtocol {
                 urlComponents.queryItems?.append(URLQueryItem(name: key, value: "\(value)"))
             }
         }
-        
-        /// print the request url
-        #if DEBUG
-        print( urlComponents.url as Any)
-        #endif
         
         /// Create a request
         var request = URLRequest(url:  urlComponents.url!,
