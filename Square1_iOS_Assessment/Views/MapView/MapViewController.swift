@@ -27,7 +27,7 @@ class MapViewController: UIViewController {
         arrangeDataForLatAndLong()
     }
     
-    func arrangeDataForLatAndLong() {
+    private func arrangeDataForLatAndLong() {
         viewModel?.allMapData
             .sink(receiveValue: { value in
                 self.setAnotation(latitudes: value.latitude ,
@@ -36,7 +36,7 @@ class MapViewController: UIViewController {
             }).store(in: &cancellableSet)
     }
     
-    func setAnotation(latitudes: [Double], longitudes: [Double], names: [String]) {
+    private func setAnotation(latitudes: [Double], longitudes: [Double], names: [String]) {
         let coordinates = zip(latitudes, longitudes).map(CLLocationCoordinate2D.init)
         
         let annotations = zip(coordinates, names)

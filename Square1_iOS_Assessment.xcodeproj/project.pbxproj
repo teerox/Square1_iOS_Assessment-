@@ -16,7 +16,6 @@
 		C70BBECA2888CE960094D402 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C70BBEC82888CE960094D402 /* Main.storyboard */; };
 		C70BBECC2888CE990094D402 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C70BBECB2888CE990094D402 /* Assets.xcassets */; };
 		C70BBECF2888CE990094D402 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C70BBECD2888CE990094D402 /* LaunchScreen.storyboard */; };
-		C70BBEDA2888CE990094D402 /* Square1_iOS_AssessmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70BBED92888CE990094D402 /* Square1_iOS_AssessmentTests.swift */; };
 		C70BBEE42888CE990094D402 /* Square1_iOS_AssessmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70BBEE32888CE990094D402 /* Square1_iOS_AssessmentUITests.swift */; };
 		C70BBEE62888CE990094D402 /* Square1_iOS_AssessmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70BBEE52888CE990094D402 /* Square1_iOS_AssessmentUITestsLaunchTests.swift */; };
 		C70BBEF52889490E0094D402 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70BBEF42889490E0094D402 /* NetworkManager.swift */; };
@@ -72,7 +71,6 @@
 		C70BBECE2888CE990094D402 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C70BBED02888CE990094D402 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C70BBED52888CE990094D402 /* Square1_iOS_AssessmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Square1_iOS_AssessmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C70BBED92888CE990094D402 /* Square1_iOS_AssessmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Square1_iOS_AssessmentTests.swift; sourceTree = "<group>"; };
 		C70BBEDF2888CE990094D402 /* Square1_iOS_AssessmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Square1_iOS_AssessmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C70BBEE32888CE990094D402 /* Square1_iOS_AssessmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Square1_iOS_AssessmentUITests.swift; sourceTree = "<group>"; };
 		C70BBEE52888CE990094D402 /* Square1_iOS_AssessmentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Square1_iOS_AssessmentUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -194,7 +192,6 @@
 			isa = PBXGroup;
 			children = (
 				C74EF791288AE1A20066A58E /* ViewModelTest */,
-				C70BBED92888CE990094D402 /* Square1_iOS_AssessmentTests.swift */,
 			);
 			path = Square1_iOS_AssessmentTests;
 			sourceTree = "<group>";
@@ -613,7 +610,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C70BBEDA2888CE990094D402 /* Square1_iOS_AssessmentTests.swift in Sources */,
 				C74EF793288AE69D0066A58E /* ViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
