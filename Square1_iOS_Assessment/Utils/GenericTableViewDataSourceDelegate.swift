@@ -40,7 +40,7 @@ public final class GenericTableViewDataSourceDelegate<Model, Cell: UITableViewCe
     }
     
     public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return  showHeaderView ? "List of cities: Page: \(items[section])".uppercased() : nil
+        return  showHeaderView ? "List of cities- Page: \(items[section])".uppercased() : nil
     }
     
     public func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {

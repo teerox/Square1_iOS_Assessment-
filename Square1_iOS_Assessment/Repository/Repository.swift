@@ -14,10 +14,7 @@ class Repository {
     private let networkManger: ServiceProtocol!
     private let cacheManager: CacheProtocol!
     private var cancellableSet: Set<AnyCancellable> = []
-    private var errorMessages: String = ""
-    private var token: NotificationToken?
     
-    let items = PassthroughSubject<AllItems?, Error>()
     let itemsFromDb = CurrentValueSubject<[TableViewValue], Never>([])
     
     /// Initialze Network Manager and cache manager here
@@ -51,27 +48,19 @@ class Repository {
             }.store(in: &cancellableSet)
     }
     
-    func queryByCityName(with cityName: String, page: Int) {
+    func queryByCityName(with cityName: String) -> AnyPublisher<ResponseModel, Error> {
         
         let result: AnyPublisher<ResponseModel, Error> = networkManger
             .makeReques(url: "/city",
                         method: .get,
-                        parameters: ["filter[0][name][contains]": cityName,
-                                     "page" : page,"include": "country"])
-        
-        result
-            .sink { completion in
-                self.items.send(completion: completion)
-            } receiveValue: { result in
-                self.items.send(result.data)
-            }.store(in: &cancellableSet)
+                        parameters: ["filter[0][name][contains]": cityName,"include": "country"])
+       return  result
     }
     
     func fetchDataFromDB() {
         var resultArray = [TableViewValue]()
         let result = cacheManager.fetchFromRealm()
         if !result.isEmpty {
-            
             resultArray.removeAll()
             for value in result {
                 resultArray.append(TableViewValue(value: value))

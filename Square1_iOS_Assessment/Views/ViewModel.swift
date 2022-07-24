@@ -12,13 +12,9 @@ class ViewModel {
     
     private let repository = Repository()
     private var cancellableSet: Set<AnyCancellable> = []
-    private var errorMessages: String = ""
-    private var itemSetUPPaginationArray: [Item] = []
-    let items = PassthroughSubject<AllItems?, Error>()
     let itemsFromDb = CurrentValueSubject<[TableViewValue], Never>([])
     let allMapData = PassthroughSubject<AllMapData, Never>()
     var mapItems: [MapData] = []
-    var page: Int = 1
     
     /// Fetch Data from Api
     func fetchDataFromApi(page: Int) {
@@ -41,22 +37,11 @@ class ViewModel {
     /// - Parameters:
     ///   - cityName: City name required to make a call
     ///   - page: page number needed for each request
-    func queryByCityName(with cityName: String, page: Int) {
-        repository.queryByCityName(with: cityName, page: page)
-        getQuryResult()
+    func queryByCityName(with cityName: String) -> AnyPublisher<ResponseModel, Error>{
+        return repository.queryByCityName(with: cityName)
     }
     
-    /// Get result from query for view
-    private func getQuryResult() {
-        repository.items
-            .sink { completion in
-                self.items.send(completion: completion)
-            } receiveValue: { result in
-                self.items.send(result)
-            }.store(in: &cancellableSet)
-    }
-    
-    /// method to get latitude, longitude, city name and country from db
+    /// Method to get latitude, longitude, city name and country from db
     func getLngAndLat() {
         repository.fetchDataFromDB()
         repository.itemsFromDb.sink { result in
@@ -73,6 +58,9 @@ class ViewModel {
         }.store(in: &cancellableSet)
     }
     
+    /// Remove Duplicate from given data
+    /// - Parameter itemArray: Data from Api
+    /// - Returns: Result without Dplicate
      func removeDublicate(itemArray: [Item]) -> [Item] {
         var uniquieArray: [Item] = []
            for item in itemArray {
@@ -81,16 +69,5 @@ class ViewModel {
                }
            }
            return uniquieArray
-    }
-    
-    func setUpItemArrayWithPagination(data: AllItems) -> [Item] {
-        
-        itemSetUPPaginationArray.removeAll()
-        self.itemSetUPPaginationArray.append(contentsOf: data.items)
-        
-        for (index,_) in itemSetUPPaginationArray.enumerated() {
-            itemSetUPPaginationArray[index].pagination = data.pagination
-        }
-        return itemSetUPPaginationArray
     }
 }
