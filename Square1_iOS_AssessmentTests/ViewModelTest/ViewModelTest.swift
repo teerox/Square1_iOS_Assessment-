@@ -23,19 +23,6 @@ class ViewModelTest: XCTestCase {
         viewModel = nil
     }
     
-    //Run App first before testing
-    func testThatApiRequestDataIsAddedToDB() {
-        let requestExpectation = expectation(description: "Request should finish")
-        viewModel.fetchFromDB()
-        viewModel.itemsFromDb
-            .sink(receiveValue: { result in
-                XCTAssertTrue(!result.isEmpty)
-                requestExpectation.fulfill()
-            })
-            .store(in: &cancellables)
-        wait(for: [requestExpectation], timeout: 10.0)
-    }
-    
     func testSearchByCityName() {
         let requestExpectation = expectation(description: "Request should finish")
         var error: Error?
@@ -59,8 +46,7 @@ class ViewModelTest: XCTestCase {
         
         XCTAssertTrue(!resultArray.isEmpty)
         XCTAssertNil(error)
-    } //passed
-    
+    }
     
     func testSearchWithIrelivantCityNameReturnsEmpty() {
         let requestExpectation = expectation(description: "Request should finish")
@@ -85,19 +71,6 @@ class ViewModelTest: XCTestCase {
         
         XCTAssertTrue(result.isEmpty)
         XCTAssertNil(error)
-    } //passed
-    
-    //Run App first before testing
-    func testmapDataIsNotEmpty() {
-        let requestExpectation = expectation(description: "Request should finish")
-        viewModel.getLngAndLat()
-        viewModel.itemsFromDb
-            .sink(receiveValue: { _ in
-                XCTAssertTrue(!(self.viewModel.mapItems.isEmpty))
-                requestExpectation.fulfill()
-            })
-            .store(in: &cancellables)
-        wait(for: [requestExpectation], timeout: 10.0)
     }
 
     func testRemoveDuplicateFromData() {
@@ -131,6 +104,6 @@ class ViewModelTest: XCTestCase {
                                          continentID: 1))
        let result = viewModel.removeDublicate(itemArray: [data,data,data2])
         XCTAssertEqual(result.count, 2)
-    } //passed
+    }
 }
 
