@@ -22,18 +22,18 @@ class HomeViewController: UIViewController {
     @IBAction func segmentControllClick(_ sender: Any) {
         switch self.segmentControlOutlet.selectedSegmentIndex{
         case 0:
-            self.moveTList()
+            self.moveToListView()
         case 1:
             if let viewControler = self.children.first as? MapViewController {
                 viewControler.setUpData()
             }
-            self.moveToMap()
+            self.moveToMapView()
         default:
-            self.moveTList()
+            self.moveToListView()
         }
     }
     
-    private func moveToMap() {
+    private func moveToMapView() {
         self.mapView.isHidden = false
         UIView.animate(withDuration: 0.9, delay: 0, options: .curveEaseOut, animations: {
             self.view.superview?.layoutIfNeeded()
@@ -44,7 +44,7 @@ class HomeViewController: UIViewController {
         }
     }
     
-    private func moveTList() {
+    private func moveToListView() {
         self.listView.isHidden = false
         UIView.animate(withDuration: 0.9, delay: 0, options: .curveEaseOut, animations: {
             self.view.superview?.layoutIfNeeded()

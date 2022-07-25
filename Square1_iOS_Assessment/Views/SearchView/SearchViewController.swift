@@ -54,7 +54,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     }
     
     private func didFetchData(data: [Item]) {
-        let values: ItemDataSource = .init(data: viewModel.removeDublicate(itemArray: data))
+        let values: ItemDataSource = .init(data: viewModel.removeDuplicate(itemArray: data))
         dataSource = handleTableViewDataSource(model: values)
         setUpTableView()
     }

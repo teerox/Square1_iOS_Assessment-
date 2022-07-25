@@ -42,7 +42,7 @@ class ViewModel {
     }
     
     /// Method to get latitude, longitude, city name and country from db
-    func getLngAndLat() {
+    func getLongitudeAndLatitude() {
         repository.fetchDataFromDB()
         repository.itemsFromDb.sink { result in
             self.mapItems = result.map {
@@ -61,7 +61,7 @@ class ViewModel {
     /// Remove Duplicate from given data
     /// - Parameter itemArray: Data from Api
     /// - Returns: Result without Dplicate
-     func removeDublicate(itemArray: [Item]) -> [Item] {
+     func removeDuplicate(itemArray: [Item]) -> [Item] {
         var uniquieArray: [Item] = []
            for item in itemArray {
                if !uniquieArray.contains(item) {
