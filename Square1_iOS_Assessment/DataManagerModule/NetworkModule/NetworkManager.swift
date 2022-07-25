@@ -46,7 +46,7 @@ class NetworkManager: ServiceProtocol {
         
         urlComponents.queryItems = []
         
-        /// check if params is sent
+        /// check if parameters is sent
         /// Param is the request object for get calls
         if let parameters = parameters {
             for (key, value) in parameters {
@@ -64,7 +64,6 @@ class NetworkManager: ServiceProtocol {
         return URLSession
             .shared
             .dataTaskPublisher(for: request)
-            //.print()
             .map{ $0.data }
             .decode(type: T.self, decoder: JSONDecoder())
             .map { $0 }
