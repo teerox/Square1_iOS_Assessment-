@@ -90,6 +90,7 @@
 		C74EF794288B54110066A58E /* ItemDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDataSource.swift; sourceTree = "<group>"; };
 		C76A63BF288BA7AB0043E315 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		C76A63C2288CCCB60043E315 /* UITableView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView + Extension.swift"; sourceTree = "<group>"; };
+		C76A63C4288E2D380043E315 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D165335FFC4C18E3BF52B1C7 /* Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentUITests.debug.xcconfig"; path = "Target Support Files/Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentUITests/Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D30C2B8A875AB780F417C695 /* Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentUITests.release.xcconfig"; path = "Target Support Files/Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentUITests/Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EE8FC70D497EA757BAA0F5F0 /* Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentTests.debug.xcconfig"; path = "Target Support Files/Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentTests/Pods-Square1_iOS_Assessment-Square1_iOS_AssessmentTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -151,6 +152,7 @@
 		C70BBEB62888CE960094D402 = {
 			isa = PBXGroup;
 			children = (
+				C76A63C4288E2D380043E315 /* README.md */,
 				C70BBEC12888CE960094D402 /* Square1_iOS_Assessment */,
 				C70BBED82888CE990094D402 /* Square1_iOS_AssessmentTests */,
 				C70BBEE22888CE990094D402 /* Square1_iOS_AssessmentUITests */,

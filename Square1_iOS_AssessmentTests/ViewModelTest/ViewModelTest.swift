@@ -102,7 +102,7 @@ class ViewModelTest: XCTestCase {
                                          createdAt: "",
                                          updatedAt: "",
                                          continentID: 1))
-       let result = viewModel.removeDublicate(itemArray: [data,data,data2])
+       let result = viewModel.removeDuplicate(itemArray: [data,data,data2])
         XCTAssertEqual(result.count, 2)
     }
 }
